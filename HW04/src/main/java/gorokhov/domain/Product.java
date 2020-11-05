@@ -1,18 +1,26 @@
-package gorokhov.beans;
+package gorokhov.domain;
 
-public class Product{
 
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "products")
+public class Product {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue
     private int id;
-    private String name;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "price")
     private double price;
 
     public Product() {
-    }
-
-    public Product(int id, String name, double price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
     }
 
     public int getId() {
@@ -23,12 +31,12 @@ public class Product{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public double getPrice() {
@@ -43,8 +51,9 @@ public class Product{
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", title='" + title + '\'' +
                 ", price=" + price +
                 '}';
     }
+
 }
