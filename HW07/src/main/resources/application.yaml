@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /app
+spring:
+  mvc:
+    static-path-pattern: /statico/**
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=shop
+    username: sa
+    password: 12345
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, beans, mappings
