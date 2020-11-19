@@ -1,7 +1,11 @@
 package gorokhov.controller;
 
 import gorokhov.domain.Product;
+import gorokhov.domain.Role;
+import gorokhov.domain.User;
 import gorokhov.service.ProductServiceImpl;
+import gorokhov.service.UserService;
+import gorokhov.service.UserServiceImpl;
 
 public class InitData {
 
@@ -81,6 +85,28 @@ public class InitData {
         product12.setTitle("title12");
         product12.setPrice(12.12);
         productService.saveAndSet(product12);
+
+    }
+
+    public void initializeUsers(UserService userService) {
+
+        User USER = new User();
+        User ADMIN = new User();
+        User MANAGER = new User();
+        USER.setName("User");
+        USER.setPassword("pass");
+        USER.setRole(Role.USER);
+        userService.save(USER);
+
+        ADMIN.setName("Admin");
+        ADMIN.setPassword("admin");
+        ADMIN.setRole(Role.ADMIN);
+        userService.save(ADMIN);
+
+        MANAGER.setName("Manager");
+        MANAGER.setPassword("pass2");
+        MANAGER.setRole(Role.MANAGER);
+        userService.save(MANAGER);
 
     }
 

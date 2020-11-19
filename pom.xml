@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>HW01</module>
+        <module>HW04</module>
     </modules>
 
 
