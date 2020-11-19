@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -12,6 +12,15 @@
             <td>Menu -> </td>
             <td><a th:href="@{/}">Home</a></td>
             <td><a th:href="@{/catalog}">Catalog</a></td>
+            <td><a th:href="@{/users}">Users</a></td>
+            <div sec:authorize="!isAuthenticated()">
+                <td> <a th:href="@{/login}">Login</a></td>
+            </div>
+            <div sec:authorize="isAuthenticated()">
+                <td><a th:href="@{/logout}">Logout</a></td>
+            </div>
+
+
         </tr>
     </table>
 </div>

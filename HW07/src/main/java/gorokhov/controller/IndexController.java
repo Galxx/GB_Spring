@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -26,6 +27,11 @@ public class IndexController {
     public String index(Model model){
         model.addAttribute("message", "Welcome to our shop");
         return "index";
+    }
+
+    @RequestMapping(value = "/login")
+    public String loginPage(){
+        return "login";
     }
 
     @GetMapping("/catalog")
